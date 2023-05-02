@@ -13,3 +13,14 @@ Swarm Steering Behavious System for Unity.
 
 
 Originally I made this for a Gama Jam. This is a slightly improved version in *3D* and with minor improvements.
+
+## Demo
+
+### Space Demo
+
+![space demo gif](/demo/boids-sg-demo.gif)
+
+### Obstacle Demo
+
+![obstacle demo gif](/demo/boids-obstacle-demo.gif)
+
