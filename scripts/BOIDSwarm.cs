@@ -65,6 +65,9 @@ public class BOIDSwarm : MonoBehaviour
             list.Add(unit);
             boidGrids.Add(cell, list);
         }
+
+        // Also store grid cell index in unit for easy access
+        unit.currentGridCell = cell;
     }
     
     /// <summary>
@@ -72,14 +75,13 @@ public class BOIDSwarm : MonoBehaviour
     /// </summary>
     public void removeUnit(BOIDUnit unit)
     {
-        //FIXME: does nothing. unit is no longer where I  thought it was
-        /*
-        Vector3Int cell = posToGridCell(unit.transform.position);
+        // This is not necesseraily where the unit is, but where it thinks it is, because it is where it was
+        // (The missile knows where it is ;P)
+        Vector3Int cell = unit.currentGridCell;
+        
         List<BOIDUnit> list;
         boidGrids.TryGetValue(cell, out list);
         list.Remove(unit);
-        */
-        // Does not do anything
     }
 
     // Update spatial hash grid cell positions
@@ -125,7 +127,10 @@ public class BOIDSwarm : MonoBehaviour
                 list = new List<BOIDUnit>();
                 list.Add(pair.Value);
                 boidGrids.Add(pair.Key, list);
-            }  
+            }
+
+            // Also store cell index in unit for easy access
+            pair.Value.currentGridCell = pair.Key;
         }
     }
 

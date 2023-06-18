@@ -22,6 +22,7 @@ public class BOIDUnit : MonoBehaviour
     // Management of close units
     [HideInInspector] public BOIDSwarm mySwarm;
     List<BOIDUnit> closeUnits = new List<BOIDUnit>();
+    [HideInInspector] public Vector3Int currentGridCell;
 
     // Movement via physics
     Rigidbody rigidB;
